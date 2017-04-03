@@ -5,5 +5,4 @@ exim4-daemon-heavy
 krb5-admin-server
 mailman
 nagios3
-postgresql
 transmission-daemon

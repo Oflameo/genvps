@@ -45,3 +45,10 @@
            default_release: jessie-backports
        with_lines: 
            - cat ../config/package-lists/backports_administration.list.binary
+    -  name: Install backports recoup packages
+       apt:
+           name: "{{ item }}"
+           state: present
+           default_release: jessie-backports
+       with_lines: 
+           - cat ../config/package-lists/backports_recoup.list.binary
