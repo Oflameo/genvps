@@ -1,0 +1,36 @@
+---
+- hosts: "{{ hosts }}"
+  remote_user:  "{{ user }}"
+  become: True
+  tasks:
+    -  name: Minimize Swapping
+       copy: 
+          src: ../config/includes.chroot/etc/sysctl.d/30-swappiness.conf
+          dest: /etc/sysctl.d/30-swappiness.conf
+          owner: root
+          group: root
+          mode: 0644
+    -  name: Stop Samba AD DC
+       service:
+          name: samba-ad-dc
+          state: stopped
+          enabled: no
+    - name: block all IPv4 ports except ssh
+      copy:
+          src: template/iptables/rules.v4
+          dest: /etc/iptables/rules.v4
+          owner: root
+          group: root
+          mode: 0644
+    - name: block all IPv6 ports except ssh
+      copy:
+          src: template/iptables/rules.v6
+          dest: /etc/iptables/rules.v6
+          owner: root
+          group: root
+          mode: 0644
+    - name: Start Iptables Persistant
+      service:
+         name: netfilter-persistent.service
+         state: started
+         enabled: yes
