@@ -1,0 +1,9 @@
+389-ds
+apache2
+exim4-daemon-heavy
+dovecot-core
+postgresl
+transmission-daemon
+mailman
+nagios3
+krb5-admin-server389-ds

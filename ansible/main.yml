@@ -1,0 +1,53 @@
+---
+- hosts: "{{ hosts }}"
+  remote_user:  "{{ user }}"
+  become: True
+  tasks:
+    -  name: Set sources
+       copy:
+          src: ../config/includes.chroot/etc/apt/sources.list
+          dest: /etc/apt/sources.list
+          owner: root
+          group: root
+          mode: 0644
+    -  name: Update
+       apt: 
+          update_cache: yes
+          upgrade: safe
+    -  name: Install admin packages
+       apt: 
+           name: "{{ item }}"
+           state: present
+       with_lines: 
+           - cat ../config/package-lists/administration.list.binary
+    -  name: Install logging packages
+       apt:
+           name: "{{ item }}"
+           state: present
+       with_lines:
+           - cat ../config/package-lists/logging.list.binary
+    -  name: Install files packages
+       apt:
+           name: "{{ item }}"
+           state: present
+       with_lines:
+           - cat ../config/package-lists/files.list.binary
+    -  name: Install presentation packages
+       apt:
+           name: "{{ item }}"
+           state: present
+       with_lines:
+           - cat ../config/package-lists/presentation.list.binary
+    -  name: Install recoup packages
+       apt:
+           name: "{{ item }}"
+           state: present
+       with_lines:
+           - cat ../config/package-lists/recoup.list.binary
+    -  name: Install backports admin packages
+       apt:
+           name: "{{ item }}"
+           state: present
+           default_release: jessie-backports
+       with_lines: 
+           - cat ../config/package-lists/backports_administration.list.binary
