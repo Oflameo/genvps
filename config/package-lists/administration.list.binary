@@ -25,11 +25,11 @@ python3
 rsync
 ruby
 sasl2-bin
+smbclient
 sqlite3
 sssd
 sudo
 tcl
-samba-common-bin
 tmux
 util-linux
 uucp
