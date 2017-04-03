@@ -12,6 +12,7 @@ ksh
 ldap-utils
 ldapvi
 luajit
+lxc
 moreutils
 mutt
 netselect-apt
