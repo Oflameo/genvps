@@ -2,7 +2,7 @@
 apache2
 exim4-daemon-heavy
 dovecot-core
-postgresl
+postgresql
 transmission-daemon
 mailman
 nagios3
