@@ -6,4 +6,4 @@ postgresql
 transmission-daemon
 mailman
 nagios3
-krb5-admin-server389-ds
+krb5-admin-server
