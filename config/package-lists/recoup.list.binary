@@ -1,9 +1,9 @@
 389-ds
 apache2
-exim4-daemon-heavy
 dovecot-core
-postgresql
-transmission-daemon
+exim4-daemon-heavy
+krb5-admin-server
 mailman
 nagios3
-krb5-admin-server
+postgresql
+transmission-daemon
