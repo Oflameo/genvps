@@ -1,6 +1,5 @@
 389-ds
 apache2
-bind9
 dovecot-core
 exim4-daemon-heavy
 krb5-admin-server
