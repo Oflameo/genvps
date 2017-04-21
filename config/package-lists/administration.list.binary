@@ -3,6 +3,7 @@ ansible
 apt-file
 autofs5-ldap
 dhcpcd5
+easy-rsa
 emacs
 git
 iproute2
