@@ -1,10 +1,8 @@
 apache2
-bind9
 dovecot-core
 exim4-daemon-heavy
 mailman
 nagios3
-openjdk
-openldap
+slapd
 postgresql
 transmission-daemon
