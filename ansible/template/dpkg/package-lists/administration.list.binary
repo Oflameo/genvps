@@ -30,7 +30,6 @@ smbclient
 sqlite3
 sssd
 sudo
-tcl
 tmux
 util-linux
 uucp
