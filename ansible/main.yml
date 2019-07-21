@@ -5,7 +5,7 @@
   tasks:
     -  name: Set sources
        copy:
-          src: ../config/includes.chroot/etc/apt/sources.list
+          src: template/apt/sources.list
           dest: /etc/apt/sources.list
           owner: root
           group: root
@@ -19,36 +19,22 @@
            name: "{{ item }}"
            state: present
        with_lines: 
-           - cat ../config/package-lists/administration.list.binary
+           - cat template/dpkg/package-lists/administration.list.binary
     -  name: Install logging packages
        apt:
            name: "{{ item }}"
            state: present
        with_lines:
-           - cat ../config/package-lists/logging.list.binary
+           - cat template/dpkg/package-lists/logging.list.binary
     -  name: Install files packages
        apt:
            name: "{{ item }}"
            state: present
        with_lines:
-           - cat ../config/package-lists/files.list.binary
+           - cat template/dpkg/package-lists/files.list.binary
     -  name: Install recoup packages
        apt:
            name: "{{ item }}"
            state: present
        with_lines:
-           - cat ../config/package-lists/recoup.list.binary
-    -  name: Install backports admin packages
-       apt:
-           name: "{{ item }}"
-           state: present
-           default_release: jessie-backports
-       with_lines: 
-           - cat ../config/package-lists/backports_administration.list.binary
-    -  name: Install backports recoup packages
-       apt:
-           name: "{{ item }}"
-           state: present
-           default_release: jessie-backports
-       with_lines: 
-           - cat ../config/package-lists/backports_recoup.list.binary
+           - cat template/dpkg/package-lists/recoup.list.binary
